@@ -15,7 +15,7 @@ namespace Dicom.Imaging.Codec {
 		private static Dictionary<DicomTransferSyntax,IDicomCodec> _codecs = new Dictionary<DicomTransferSyntax,IDicomCodec>();
 
 		static DicomTranscoder() {
-			LoadCodecs(null, "Dicom.Native*.dll");
+			LoadCodecs(System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Bin"), "Dicom.Native*.dll");
 		}
 
 		public static IDicomCodec GetCodec(DicomTransferSyntax syntax) {
